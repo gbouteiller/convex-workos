@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Providers as AuthProviders } from "./(auth)/providers";
 import { Providers } from "./providers";
 
 // FONTS ***********************************************************************************************************************************
@@ -30,17 +29,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<Providers>
-					<AuthProviders>
-						<header className="p-2 border-b-1">
-							<Button variant="ghost">
-								<Link href="/">Home</Link>
-							</Button>
-							<Button variant="ghost">
-								<Link href="/admin">Admin</Link>
-							</Button>
-						</header>
-						<main className="p-10">{children}</main>
-					</AuthProviders>
+					<header className="p-2 border-b-1">
+						<Button variant="ghost">
+							<Link href="/">Home</Link>
+						</Button>
+						<Button variant="ghost">
+							<Link href="/admin">Admin</Link>
+						</Button>
+					</header>
+					<main className="p-10">{children}</main>
 				</Providers>
 			</body>
 		</html>
