@@ -10,13 +10,13 @@ const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL, { expec
 
 export function Providers({ children, ...props }: ComponentProps<typeof NextThemesProvider>) {
 	return (
-		<NextThemesProvider {...props} attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-			<AuthKitProvider>
-				<ConvexProviderWithAuth client={convex} useAuth={useAuthFromAuthKit}>
+		<AuthKitProvider>
+			<ConvexProviderWithAuth client={convex} useAuth={useAuthFromAuthKit}>
+				<NextThemesProvider {...props} attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 					{children}
-				</ConvexProviderWithAuth>
-			</AuthKitProvider>
-		</NextThemesProvider>
+				</NextThemesProvider>
+			</ConvexProviderWithAuth>
+		</AuthKitProvider>
 	);
 }
 
