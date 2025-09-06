@@ -6,7 +6,7 @@ import { UserEmail } from "./user-email";
 
 // ROOT ************************************************************************************************************************************
 export default async function AdminPage() {
-	const { accessToken } = await withAuth();
+	const { accessToken } = await withAuth({ ensureSignedIn: true });
 	const preloaded = await preloadQuery(api.auth.getUserEmail, {}, { token: accessToken });
 
 	return (
